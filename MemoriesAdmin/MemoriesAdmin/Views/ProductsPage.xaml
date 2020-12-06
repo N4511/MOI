@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MemoriesAdmin.Views.ProductsPage">
+  
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+            <Button Command="{Binding GetProductsCommand}"
+                Text="Get All Ideas"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DodgerBlue"/>
+        <ListView ItemsSource="{Binding Products}"
+                  HasUnevenRows="True"
+                  CachingStrategy="RecycleElement"
+                  ItemTapped="IdeasListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0,10">
+                            <Label Text="{Binding title}"
+                                   FontSize="24"
+                                   TextColor="RoyalBlue" />
+                            <Label Text="{Binding description}" />
+                            <Label Text="{Binding price}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

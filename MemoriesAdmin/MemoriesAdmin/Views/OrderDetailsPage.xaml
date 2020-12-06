@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MemoriesAdmin.Views.OrderDetailsPage"
+             Title="{Binding id}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Print" Clicked="Print_Order" />
+            <Label Text="{Binding customer_name}" />
+            <Label Text="{Binding  address}" />
+            <Label Text="{Binding area }" />
+            <Label Text="{Binding  postcode}" />
+            <Label Text="{Binding  price}" />
+            <Label Text="{Binding  order_type}" />
+            <Label Text="{Binding  order_status}" />
+            <Label Text="{Binding  contact_number}" />
+            <Label Text="{Binding  order_time}" />
+
+            <ListView x:Name="list"
+                  ItemsSource="{Binding items}"                
+                  >
+              
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15,0">
+                                <Label Text="{Binding .}"
+                                 
+                                   TextColor="RoyalBlue" />
+                              
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

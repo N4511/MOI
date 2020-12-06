@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MemoriesAdmin.Views.AdminOrdersPage">
+   
+    <StackLayout>
+        <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+        <ListView x:Name="list"
+                  ItemsSource="{Binding OrdersGrouped}"
+                  IsGroupingEnabled="true"
+                  HasUnevenRows="True"
+                  ItemTapped="IdeasListView_ItemTapped">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Key}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="20,0">
+                            <Label Text="{Binding id}"
+                                   FontSize="Small"
+                                   TextColor="RoyalBlue" />
+                            <Label Text="{Binding customer_name}" />
+                            <Label Text="{Binding order_time}" />
+                            <StackLayout>
+                                <Button Text="Print" CommandParameter="{Binding id }"
+                                        Clicked="PrintButtonClicked"></Button>
+                             </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <Button x:Name="ButtonGet" Text="Get Orders"/>
+    </StackLayout>
+</ContentPage>

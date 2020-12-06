@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MemoriesAdmin.Views.ReservationPage">
+
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+           
+            <Button x:Name="ButtonGet" Text="Get Orders"/>
+            <ListView x:Name="list"
+                  ItemsSource="{Binding Reservations}"
+               
+                  HasUnevenRows="True"
+                 >
+               
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20,0">
+                                <Label Text="{Binding id}"
+                                   FontSize="Small"
+                                   TextColor="RoyalBlue" />
+                              
+                                <StackLayout>
+                                    <Label Text="{Binding username}"/>
+                                    <Label Text="{Binding no_of_guest}"/>
+                                    <Label Text="{Binding reservation_date}"/>
+                                    <Label Text="{Binding reservation_time}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

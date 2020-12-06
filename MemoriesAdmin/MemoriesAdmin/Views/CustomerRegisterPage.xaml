@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MemoriesAdmin.Views.CustomerRegisterPage"
+             Title="{Binding Title}"
+             xmlns:vm="clr-namespace:MemoriesAdmin.ViewModels;assembly=MemoriesAdmin">
+    <ContentPage.BindingContext>
+        <vm:CustomerRegisterViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout.Margin>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>0,20,0,0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>0,40,0,0</OnIdiom.Tablet>
+                    <OnIdiom.Desktop>0,60,0,0</OnIdiom.Desktop>
+                </OnIdiom>
+            </StackLayout.Margin>
+            <Entry Text="{Binding Name}"
+                   Placeholder="Name"/>
+            <Entry Text="{Binding Email}"
+                   Placeholder="Email"/>
+            <Entry Text="{Binding Password}"
+                   IsPassword="True"/>
+            <Entry Text="{Binding ConfirmedPassword}"
+                   IsPassword="True"/>
+            <Entry Text="{Binding Address}"
+                   Placeholder="Address"/>
+            <Entry Text="{Binding Area}"
+                   Placeholder="Area"/>
+            <Entry Text="{Binding Postcode}"
+                   Placeholder="PostCode"/>
+            <Button Command="{Binding RegisterCustomerCommand}"
+                    Text="Register"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+        </StackLayout>   
+       
+    </ContentPage.Content>
+</ContentPage>
